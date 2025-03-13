@@ -94,6 +94,7 @@ jobs:
       - name: Run pkg-config
         run: |
           env | grep -i pkg
+          micromamba list
 
           PKG_CONFIG_PATH=$env:PKG_CONFIG_PATH pkg-config --list-all
 
