@@ -5,6 +5,7 @@ dependencies:
   - openssl
   - sqlite
   - libsqlite
+  - zlib
   - libzlib
   - libtiff
   - xz
