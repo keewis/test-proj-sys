@@ -104,20 +104,20 @@ jobs:
           # remove dependency paths
           sed -i '/Requires.private:/d' $PKG_CONFIG_PATH/*.pc
 
-          path="$PKG_CONFIG_PATH/sqlite3.pc"
+          # path="$PKG_CONFIG_PATH/sqlite3.pc"
 
-          echo "# Package Information for pkg-config" > $path
-          echo "prefix=$CONDA_PREFIX/Library" >> $path
-          echo 'exec_prefix=${prefix}' >> $path
-          echo 'libdir=${exec_prefix}/lib' >> $path
-          echo 'includedir=${prefix}/include' >> $path
-          echo >> $path
-          echo 'Name: SQLite' >> $path
-          echo 'Description: SQL database engine' >> $path
-          echo 'Version: 3.49.1' >> $path
-          echo 'Libs: -L${libdir} -lsqlite3' >> $path
-          echo 'Libs.private: -lm -lz' >> $path
-          echo 'Cflags: -I${includedir}' >> $path
+          # echo "# Package Information for pkg-config" > $path
+          # echo "prefix=$CONDA_PREFIX/Library" >> $path
+          # echo 'exec_prefix=${prefix}' >> $path
+          # echo 'libdir=${exec_prefix}/lib' >> $path
+          # echo 'includedir=${prefix}/include' >> $path
+          # echo >> $path
+          # echo 'Name: SQLite' >> $path
+          # echo 'Description: SQL database engine' >> $path
+          # echo 'Version: 3.49.1' >> $path
+          # echo 'Libs: -L${libdir} -lsqlite3' >> $path
+          # echo 'Libs.private: -lm -lz' >> $path
+          # echo 'Cflags: -I${includedir}' >> $path
 
           # check that this works
           pkg-config --libs --cflags proj 'proj >= 9.4.0'
