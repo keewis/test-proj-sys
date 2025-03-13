@@ -93,6 +93,7 @@ jobs:
 
       - name: Run pkg-config
         run: |
+          export PKG_CONFIG_PATH
           echo "$PKG_CONFIG_PATH"
           pkg-config --help
 
