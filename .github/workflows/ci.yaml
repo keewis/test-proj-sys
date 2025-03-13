@@ -97,6 +97,24 @@ jobs:
           ls -l $CONDA_PREFIX/Library/lib/pkgconfig
           pkg-config --libs --cflags proj 'proj >= 9.4.0'
 
+      - name: Generate sqlite config
+        if: matrix.os == "windows-latest"
+        run: |
+          path="$PKG_CONFIG_PATH/sqlite3.pc"
+
+          echo "# Package Information for pkg-config" > $path
+          echo "prefix=$CONDA_PREFIX/Library" >> $path
+          echo 'exec_prefix=${prefix}' >> $path
+          echo 'libdir=${exec_prefix}/lib' >> $path
+          echo 'includedir=${prefix}/include' >> $path
+          echo >> $path
+          echo 'Name: SQLite' >> $path
+          echo 'Description: SQL database engine' >> $path
+          echo 'Version: 3.49.1' >> $path
+          echo 'Libs: -L${libdir} -lsqlite3' >> $path
+          echo 'Libs.private: -lm -lz' >> $path
+          echo 'Cflags: -I${includedir}' >> $path
+
       - name: Run tests
         run: |
           export PKG_CONFIG_PATH="${{env.PKG_CONFIG_PATH}}"
