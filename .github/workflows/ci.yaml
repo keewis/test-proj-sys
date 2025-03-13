@@ -89,7 +89,7 @@ jobs:
           micromamba list
 
           pkg-config --list-all
-          ls -l $CONDA_PREFIX/lib
+          ls -l $CONDA_PREFIX
 
       - name: Run tests
         run: |
