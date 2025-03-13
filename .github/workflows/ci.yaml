@@ -95,6 +95,7 @@ jobs:
 
           pkg-config --list-all
           ls -l $CONDA_PREFIX/Library/lib/pkgconfig
+          pkg-config --libs --cflags proj 'proj >= 9.4.0'
 
       - name: Run tests
         run: |
