@@ -99,6 +99,8 @@ jobs:
       - name: Generate sqlite config
         if: runner.os == 'Windows'
         run: |
+          export PKG_CONFIG_PATH="${{env.PKG_CONFIG_PATH}}"
+
           path="$PKG_CONFIG_PATH/sqlite3.pc"
 
           echo "# Package Information for pkg-config" > $path
