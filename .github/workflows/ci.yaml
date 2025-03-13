@@ -101,6 +101,9 @@ jobs:
         run: |
           export PKG_CONFIG_PATH="${{env.PKG_CONFIG_PATH}}"
 
+          # remove dependency paths
+          sed -i '/Requires.private:/d' $PKG_CONFIG_PATH/*.pc
+
           path="$PKG_CONFIG_PATH/sqlite3.pc"
 
           echo "# Package Information for pkg-config" > $path
