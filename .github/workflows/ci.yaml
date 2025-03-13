@@ -98,10 +98,11 @@ jobs:
           env | grep -i pkg
           micromamba list
 
-          PKG_CONFIG_PATH=$env:PKG_CONFIG_PATH pkg-config --list-all
+          pkg-config --list-all
 
       - name: Run tests
-        if: false
         run: |
+          export PKG_CONFIG_PATH="${{env.PKG_CONFIG_PATH}}"
+
           cargo build --tests --keep-going
           cargo test --no-fail-fast
