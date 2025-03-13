@@ -52,15 +52,15 @@ jobs:
             brew install pkg-config
           fi
 
-      # - name: Setup micromamba
-      #   uses: mamba-org/setup-micromamba@v2
-      #   with:
-      #     environment-name: rust-tests
-      #     environment-file: ci/requirements/environment-rust.yaml
-      #     cache-environment: true
-      #     cache-environment-key: "${{runner.os}}-${{runner.arch}}-rust-py${{ matrix.python-version }}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
-      #     create-args: >-
-      #       python=${{ matrix.python-version }}
+      - name: Setup micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: rust-tests
+          environment-file: ci/requirements/environment-rust.yaml
+          cache-environment: true
+          cache-environment-key: "${{runner.os}}-${{runner.arch}}-rust-py${{ matrix.python-version }}-${{env.TODAY}}-${{hashFiles(env.CONDA_ENV_FILE)}}"
+          create-args: >-
+            python=${{ matrix.python-version }}
 
       - name: Create rust cache
         uses: Swatinem/rust-cache@v2
