@@ -6,5 +6,6 @@ dependencies:
   - sqlite
   - libsqlite
   - libzlib
+  - libtiff
   - xz
   - pkg-config
