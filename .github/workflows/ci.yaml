@@ -93,9 +93,7 @@ jobs:
 
       - name: Run pkg-config
         run: |
-          export PKG_CONFIG_PATH="$env:PKG_CONFIG_PATH"
-          echo "$PKG_CONFIG_PATH"
-          pkg-config --help
+          env | grep -i pkg
 
           PKG_CONFIG_PATH=$env:PKG_CONFIG_PATH pkg-config --list-all
 
