@@ -89,6 +89,7 @@ jobs:
           micromamba list
 
           pkg-config --list-all
+          ls -l $PKG_CONFIG_PATH
 
       - name: Run tests
         run: |
