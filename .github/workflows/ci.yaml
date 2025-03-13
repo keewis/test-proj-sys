@@ -95,7 +95,6 @@ jobs:
 
           pkg-config --list-all
           ls -l $CONDA_PREFIX/Library/lib/pkgconfig
-          pkg-config --libs --cflags proj 'proj >= 9.4.0'
 
       - name: Generate sqlite config
         if: runner.os == 'Windows'
@@ -114,6 +113,10 @@ jobs:
           echo 'Libs: -L${libdir} -lsqlite3' >> $path
           echo 'Libs.private: -lm -lz' >> $path
           echo 'Cflags: -I${includedir}' >> $path
+
+          # check that this works
+          pkg-config --libs --cflags proj 'proj >= 9.4.0'
+
 
       - name: Run tests
         run: |
