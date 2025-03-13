@@ -5,3 +5,4 @@ dependencies:
   - openssl
   - sqlite
   - xz
+  - pkg-config
