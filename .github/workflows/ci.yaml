@@ -98,7 +98,7 @@ jobs:
           pkg-config --libs --cflags proj 'proj >= 9.4.0'
 
       - name: Generate sqlite config
-        if: matrix.os == "windows-latest"
+        if: runner.os == 'Windows'
         run: |
           path="$PKG_CONFIG_PATH/sqlite3.pc"
 
