@@ -94,7 +94,6 @@ jobs:
           micromamba list
 
           pkg-config --list-all
-          ls -l $CONDA_PREFIX/Library/lib/pkgconfig
 
       - name: Generate sqlite config
         if: runner.os == 'Windows'
